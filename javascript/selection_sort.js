@@ -1,23 +1,15 @@
-function selectionSort(arr) {
-  // type your code here
-}
+function selectionSort(array) {
+  for (let i = 0; i < array.length - 1; i++) {
 
-if (require.main === module) {
-  // add your own tests in here
-  console.log("Expecting: [-1, 2, 3, 5]");
-  console.log("=>", selectionSort([3, -1, 5, 2]));
-
-  console.log("");
-
-  // BENCHMARK HERE, and print the average runtime
-  const longInput = [];
-
-  for (let i = 0; i < 100; ++i) {
-    longInput.push(Math.random());
+    let minIndex = i;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
+      }     
+    }
+    [array[i], array[minIndex]] = [array[minIndex], array[i]];
   }
+  return array;
 }
 
-module.exports = selectionSort;
-
-// Please add your pseudocode to this file
-// And a written explanation of your solution
+selectionSort([16,8,4,3,300,0,-4,-22])
